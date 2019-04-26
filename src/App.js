@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { addItem } from  './actions/items';
-
+ 
 class App extends Component {
-
-  
+ 
   handleOnClick = event => {
     this.props.addItem()
   }
-
+ 
   render() {
     debugger
     return (
       <div className="App">
-         
         <button onClick={this.handleOnClick}>
           Click
           </button>
@@ -23,11 +21,12 @@ class App extends Component {
     );
   }
 };
-
+ 
 const mapStateToProps = (state) => {
   return {
     items: state.items
   };
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+ 
+export default connect(mapStateToProps, { addItem })(App);
+/* ES6 shorthand lets us pass in *one* value that will be read as the key and value */
